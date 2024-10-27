@@ -33,11 +33,21 @@ class Program
     var headlineNodes = doc.DocumentNode.SelectNodes("//h2"); 
     
     var headlines = new List<string>();
-    
-    foreach (var node in headlineNodes)
+
+    if (headlineNodes != null)
     {
+      Console.WriteLine("Headlines Found! extracting text.");
+      foreach (var node in headlineNodes)
+      {
         headlines.Add(node.InnerText.Trim());
+      }
     }
+    else
+    {
+      Console.WriteLine("No headlines found. check XPath");
+    }
+    
+    
     
     return headlines.ToArray();
   }
