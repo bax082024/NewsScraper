@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "ltLRH9oJNNA=",
+  "success": true,
+  "projectFilePath": "C:\\HjemmeKode\\C-Sharp\\C-Sharp\\NewsScraper\\NewsScraper.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\busch\\.nuget\\packages\\htmlagilitypack\\1.11.70\\htmlagilitypack.1.11.70.nupkg.sha512"
+  ],
+  "logs": []
+}
