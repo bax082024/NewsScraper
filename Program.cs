@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Net.Http;
+using System.Reflection.Metadata;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
+using Microsoft.VisualBasic;
 
 class Program
 {
@@ -18,8 +20,26 @@ class Program
     {
       Console.WriteLine("- " + headline);
     }
+  }
 
-
+  static async Task<string[]> GetHeadlinesAsync(string url)
+  {
+    using var httpClient = new HttpClient();
+    var html = await httpClient.GetStringAsync(url);
+    
+    var doc = new HtmlDocument();
+    doc.LoadHtml(html);
+    
+    var headlineNodes = doc.DocumentNode.SelectNodes("//h2"); 
+    
+    var headlines = new List<string>();
+    
+    foreach (var node in headlineNodes)
+    {
+        headlines.Add(node.InnerText.Trim());
+    }
+    
+    return headlines.ToArray();
   }
 
 }
